@@ -6,7 +6,7 @@ const Body = () => {
   return (
     <div className='w-full'>
         <Tags />
-        <Feed />
+        <Feed position="horizontal" />
     </div>
   )
 }
