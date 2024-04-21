@@ -5,21 +5,21 @@ const commentsData = [
     subComments: [
       {
         id: 1,
-        comment: "Comment - Lorem Ipsum 2",
+        comment: "Comment - Lorem Ipsum 1.1",
         subComments: [],
       },
       {
         id: 2,
-        comment: "Comment - Lorem Ipsum 3",
+        comment: "Comment - Lorem Ipsum1.2",
         subComments: [],
       },
       {
         id: 3,
-        comment: "Comment - Lorem Ipsum 4",
+        comment: "Comment - Lorem Ipsum 1.3",
         subComments: [
           {
             id: 4,
-            comment: "Comment - Lorem Ipsum 5",
+            comment: "Comment - Lorem Ipsum 1.3.1",
             subComments: [],
           },
         ],
@@ -28,7 +28,7 @@ const commentsData = [
   },
   {
     id: 5,
-    comment: "Lorem ipsum 6",
+    comment: "Lorem ipsum 2",
     subComments: [],
   },
 ];
