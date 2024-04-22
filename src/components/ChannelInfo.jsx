@@ -25,7 +25,7 @@ const ChannelInfo = ({ selectedVideo }) => {
       <div className="ml-auto">
         <button
           onClick={handleSubscribe}
-          className={`px-4 py-2 font-bold rounded ${
+          className={`px-4 py-2 font-bold rounded-3xl ${
             isSubscribed ? "bg-gray-200 text-gray-800" : "bg-red-500 text-white"
           }`}
         >

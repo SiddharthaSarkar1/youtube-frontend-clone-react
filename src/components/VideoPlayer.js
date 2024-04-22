@@ -9,6 +9,7 @@ import Feed from "./Feed";
 import Tags from "./Tags";
 import commentsData from "../data/comments.js";
 import ChannelInfo from "./ChannelInfo.jsx";
+import { updateComents } from '../utils/helper.js';
 
 const VideoPlayer = () => {
   const theVideoList = useSelector((state) => state.videoSlice);
@@ -16,6 +17,17 @@ const VideoPlayer = () => {
   const [params, setParams] = useSearchParams();
   const [selectedVideo, setSelectedVideo] = useState();
   const videoId = params.get("v");
+
+  const [comments, setComments] = useState(commentsData);
+
+
+
+  const addNewReply = (targetId, newComment) => {
+    const newUpdatedComments = updateComents(comments, targetId, newComment);
+    setComments(newUpdatedComments);
+  }
+  
+
   // console.log(params);
   useEffect(() => {
     dispatch(closeSidebar());
@@ -29,7 +41,7 @@ const VideoPlayer = () => {
     });
   });
 
-  console.log(selectedVideo);
+  // console.log(selectedVideo);
 
   return (
     <div className="w-full grid grid-cols-12 gap-1">
@@ -43,11 +55,14 @@ const VideoPlayer = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
+        <h1 className="text-2xl text-bold my-2">
+          {selectedVideo?.snippet.title}
+        </h1>
         <ChannelInfo selectedVideo={selectedVideo} />
         <VideoControls selectedVideo={selectedVideo} />
         <div className="bg-gray-300 mt-3 rounded-sm">
           <div className="p-1">
-            <Comment commentsData={commentsData} />
+            <Comment commentsData={comments} addNewReply={addNewReply} />
           </div>
         </div>
       </div>
